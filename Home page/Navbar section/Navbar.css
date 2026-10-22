@@ -1,0 +1,292 @@
+/* ===== Figma exact values (frame 1920px) =====
+   Navbar: height 101px, border-bottom 1px, top 42px (hero kulla)
+   Logo   : 186 x 50   | top 25  | left 317
+   Menu   : 757.02 x 50 | top 25  | left 646.53 (phone left 1415.55 - 12px gap - 757.02)
+   Phone  : 184.45 x 30 | top 35  | left 1415.55
+*/
+.navbar {
+  position: fixed;              /* scroll pannaalum mela stay aagum */
+  top: 42px;
+  left: 0;
+  width: 100%;
+  height: 101px;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  font-family: 'Manrope', sans-serif;
+}
+
+/* Inner pages (About etc.): Figma la navbar hero-oda mela (top 0) irukku.
+   Home page la mattum 42px - adhunaala Home maaraadhu. */
+.navbar--inner {
+  top: 0;
+}
+
+/* Scroll pannina piragu: top 0 + dark background (white text visible-ah irukka) */
+.navbar--scrolled {
+  top: 0;
+  background: rgba(15, 15, 15, 0.92);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+.navbar {
+  transition: top 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 1920px design frame, always centered */
+.navbar-container {
+  position: relative;
+  width: 1920px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+/* Logo 186 x 50 */
+.navbar-logo {
+  position: absolute;
+  top: 25px;
+  left: 317px;
+  width: 186px;
+  height: 50px;
+  display: block;
+}
+.navbar-logo img {
+  width: 186px;
+  height: 50px;
+  display: block;
+}
+
+/* Menu list 757.02 x 50 */
+.navbar-menu {
+  position: absolute;
+  top: 25px;
+  left: 646.53px;
+  width: 757.02px;
+  height: 50px;
+}
+.navbar-menu ul {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Figma: Home -> About Us gap ~68px, matha items gap ~42px */
+.navbar-menu li:first-child {
+  margin-right: 28px;
+}
+.navbar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.navbar-menu a:hover,
+.navbar-menu a.active {
+  color: #ff9d00;
+}
+.nav-chevron {
+  flex-shrink: 0;
+}
+
+/* Phone 184.45 x 30 (icon 30 x 30) */
+.navbar-phone {
+  position: absolute;
+  top: 35px;
+  left: 1415.55px;
+  width: 184.45px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.navbar-phone img {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+/* Hamburger button - desktop la illa */
+.navbar-toggle {
+  display: none;
+}
+
+/* =====================================================
+   MEDIA QUERIES
+   (Desktop 1025px+ = mela irukkura Figma 1920px design)
+   ===================================================== */
+
+/* ---------- Tablet & below (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .navbar {
+    top: 0;
+    height: 80px;
+  }
+
+  /* absolute positions ellam remove -> flex layout */
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 32px;
+  }
+
+  .navbar-logo,
+  .navbar-phone {
+    position: static;
+  }
+
+  .navbar-logo,
+  .navbar-logo img {
+    width: 150px;
+    height: 40px;
+  }
+
+  .navbar-phone {
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right: 20px;
+    font-size: 16px;
+  }
+
+  /* Hamburger icon */
+  .navbar-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .navbar-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  /* open aagumbodhu X shape */
+  .navbar-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .navbar-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .navbar-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Menu -> logo keezha dropdown panel */
+  .navbar-menu {
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(15, 15, 15, 0.96);
+    transition: max-height 0.4s ease;
+  }
+  .navbar-menu.open {
+    max-height: 520px;
+  }
+  .navbar-menu ul {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    padding: 8px 32px 20px;
+  }
+  .navbar-menu li:first-child {
+    margin-right: 0;
+  }
+  .navbar-menu a {
+    justify-content: space-between;
+    height: 52px;
+    padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .navbar {
+    height: 70px;
+  }
+  .navbar-container {
+    padding: 0 20px;
+  }
+  .navbar-logo,
+  .navbar-logo img {
+    width: 130px;
+    height: 35px;
+  }
+  .navbar-phone {
+    gap: 8px;
+    margin-right: 14px;
+    font-size: 14px;
+  }
+  .navbar-phone img {
+    width: 26px;
+    height: 26px;
+  }
+  .navbar-menu ul {
+    padding: 4px 20px 16px;
+  }
+  .navbar-menu a {
+    height: 48px;
+    font-size: 15px;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 16px;
+  }
+  .navbar-logo,
+  .navbar-logo img {
+    width: 100px;
+    height: 27px;
+  }
+  /* phone number hide aagaadhu - size mattum kuraichurukku */
+  .navbar-phone {
+    gap: 6px;
+    margin-right: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .navbar-phone img {
+    width: 22px;
+    height: 22px;
+  }
+  .navbar-toggle {
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+  }
+  .navbar-menu ul {
+    padding: 4px 16px 14px;
+  }
+}

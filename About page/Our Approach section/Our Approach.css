@@ -1,0 +1,303 @@
+.approach {
+  position: relative;
+  width: 100%;
+  font-family: 'Manrope', sans-serif;
+}
+
+
+.approach-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 521.8px;
+  background-color: #2a2420;
+  background-image: linear-gradient(135deg, #2b2b30 0%, #3a2b20 100%);
+  background-size: cover;
+  background-position: center 49.3%;   
+  background-repeat: no-repeat;
+}
+
+.approach-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(34, 34, 34, 0.7);  
+}
+
+.approach-container {
+  position: relative;         
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 110px;       
+}
+
+/* ---------- Header ---------- */
+.approach-head {
+  display: flex;
+  gap: 120px;                 
+  align-items: flex-start;
+}
+.approach-head-left {
+  width: 610px;
+  flex-shrink: 0;
+}
+.approach-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 16.8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #ffffff;
+}
+.approach-label img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.approach-title {
+  margin: 15px 0 0;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 60px;          
+  letter-spacing: -0.45px;
+  color: #ffffff;
+}
+.approach-title span {
+  display: block;
+  font-weight: 700;
+}
+.approach-intro {
+  margin: 37px 0 0;           
+  width: 531.73px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 25.5px;         
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ---------- Card ---------- */
+.approach-card {
+  margin-top: 85px;           
+  background: #ffffff;
+  border-radius: 40px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+  overflow: hidden;           
+}
+
+.approach-tabs {
+  display: flex;
+  height: 100px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.approach-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  color: #222222;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.approach-tab:hover {
+  background: rgba(255, 153, 0, 0.08);
+}
+.approach-tab:focus-visible {
+  outline: 2px solid #ff9900;
+  outline-offset: -4px;
+}
+.approach-tab.active {
+  background: #ff9900;
+  color: #ffffff;
+}
+.approach-tab-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.approach-tab.active .approach-tab-icon {
+  filter: brightness(0) invert(1);
+}
+
+.approach-tab:first-child:not(.active) .approach-tab-icon {
+  filter: brightness(0);
+}
+
+/* ---------- Panel ---------- */
+.approach-panel {
+  display: grid;
+  grid-template-columns: 545px 545px;
+  column-gap: 30px;
+  align-items: center;
+  padding: 80px;              
+}
+.approach-info {
+  width: 100%;
+}
+.approach-text {
+  margin: 0 0 43px;
+  max-width: 514px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 25.5px;
+  color: #81848a;
+}
+.approach-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;                  
+}
+.approach-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 27px;
+  color: #111111;
+}
+.approach-list img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex-shrink: 0;
+}
+.approach-media {
+  width: 545px;
+  height: 343.34px;
+  display: block;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+/* ---------- Tablet (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .approach-bg {
+    height: 440px;
+  }
+  .approach-container {
+    padding: 80px 32px 0;
+  }
+  .approach-head {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .approach-head-left {
+    width: 100%;
+  }
+  .approach-title {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+  .approach-intro {
+    margin: 0;
+    width: 100%;
+    max-width: 600px;
+  }
+  .approach-card {
+    margin-top: 40px;
+    border-radius: 32px;
+  }
+  .approach-tabs {
+    height: 80px;
+  }
+  .approach-tab {
+    gap: 12px;
+    font-size: 16px;
+  }
+  .approach-tab-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .approach-panel {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+    padding: 40px;
+  }
+  .approach-text {
+    max-width: 100%;
+  }
+  .approach-media {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 545 / 343;
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .approach-bg {
+    height: 420px;
+  }
+  .approach-container {
+    padding: 70px 20px 0;
+  }
+  .approach-title {
+    font-size: 34px;
+  }
+  .approach-card {
+    border-radius: 24px;
+  }
+  .approach-tabs {
+    height: 64px;
+  }
+  .approach-tab {
+    gap: 8px;
+    font-size: 14px;
+  }
+  .approach-tab-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .approach-panel {
+    padding: 24px;
+  }
+  .approach-media {
+    border-radius: 24px;
+  }
+}
+
+/* ---------- Small mobile (<= 480px)  ---------- */
+@media (max-width: 480px) {
+  .approach-container {
+    padding: 60px 16px 0;
+  }
+  .approach-title {
+    font-size: 28px;
+  }
+  .approach-tabs {
+    height: 76px;
+  }
+  .approach-tab {
+    flex-direction: column;   
+    gap: 6px;
+    min-width: 0;
+    padding: 0 4px;
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .approach-tab-icon {
+    display: block;
+    width: 22px;
+    height: 22px;
+  }
+  .approach-panel {
+    padding: 20px;
+  }
+}

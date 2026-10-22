@@ -1,0 +1,414 @@
+/* ===== Custom Manufacturing Solution : sidebar + content (Figma 1920 | container 1280 @ left 320) =====
+   Class names "cms-*" - Home "Services" CSS oda conflict aagaadhu. */
+.cms {
+  width: 100%;
+  padding: 109px 0;             /* Figma : hero(517) -> image 626 | FAQ keezha -> footer 109 */
+  background: #ffffff;
+  font-family: 'Manrope', sans-serif;
+  color: #222222;
+}
+.cms-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 377px 851px;   /* sidebar 377 | gap 52 | content 851 */
+  column-gap: 52px;
+  align-items: start;
+}
+
+/* =============== SIDEBAR =============== */
+.cms-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 63px;                    /* category card -> help card */
+  margin-top: 2px;              /* Figma la sidebar card main image-vida 2px keezha start aagum */
+}
+
+/* Services Category card */
+.cms-cat {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+.cms-cat-head {
+  margin: 0;
+  height: 64px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  background: #ff9900;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+}
+.cms-cat-list {
+  margin: 0;
+  padding: 10px 30px;
+  list-style: none;
+}
+.cms-cat-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 67.25px;              /* 1px divider included */
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #81848a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.cms-cat-list li:last-child a {
+  border-bottom: 0;
+}
+.cms-cat-list a:hover {
+  color: #ff9900;
+}
+.cms-cat-list a:focus-visible {
+  outline: 2px solid #ff9900;
+  outline-offset: 2px;
+}
+.cms-cat-arrow {
+  color: #595959;
+  flex-shrink: 0;
+  margin-right: 5px;
+}
+
+/* Need help card (image) */
+.cms-help {
+  position: relative;
+  width: 377px;
+  height: 407px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.cms-help img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.cms-help-link {
+  position: absolute;
+  left: 40px;
+  width: 280px;
+  height: 40px;
+}
+.cms-help-phone { top: 266px; }
+.cms-help-mail { top: 326px; }
+.cms-help-link:focus-visible {
+  outline: 2px solid #ff9900;
+  outline-offset: 2px;
+}
+
+/* =============== MAIN CONTENT =============== */
+.cms-main {
+  width: 851px;
+  min-width: 0;
+}
+.cms-main-img {
+  width: 851px;
+  height: 571px;
+  display: block;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+/* paragraphs : Manrope 400 / 16px / 27.2px / #81848A */
+.cms-p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #81848a;
+}
+.cms-p--first {
+  margin-top: 39px;             /* image -> text */
+}
+.cms-p--gap {
+  margin-top: 25.6px;
+}
+.cms-fixed {
+  white-space: nowrap;          /* <br> la irukkura Figma line breaks maaraadhu */
+}
+
+/* headings : 50px light + bold */
+.cms-title {
+  margin: 0 0 18px;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 60px;
+  letter-spacing: -0.45px;
+  color: #222222;
+}
+.cms-title span {
+  font-weight: 700;
+}
+.cms-title--why {
+  margin-top: 22px;             /* paragraph -> "Why choose" */
+}
+.cms-title--section {
+  margin-top: 40px;
+}
+.cms-features + .cms-title--section {
+  margin-top: 41px;             /* features keezha -> "Planning" */
+}
+
+/* ---------- Features 2 x 2 ---------- */
+.cms-features {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 40px;
+}
+.cms-feature {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.cms-feature-icon {
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin-bottom: 28px;
+}
+.cms-feature-title {
+  margin: 0 0 16px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  color: #222222;
+}
+.cms-feature-text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #81848a;
+}
+
+/* ---------- Planning checklist 3 cols ---------- */
+.cms-check {
+  margin: 21px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
+  row-gap: 20px;
+}
+.cms-check li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #222222;
+}
+.cms-check img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ---------- Planning images ---------- */
+.cms-plan-images {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+}
+.cms-plan-images img,
+.cms-plan-ph {
+  width: 100%;
+  aspect-ratio: 411 / 395;
+  display: block;
+  border-radius: 40px;
+  object-fit: cover;
+}
+.cms-plan-ph {
+  background: #eceef1;
+}
+
+/* ---------- FAQ accordion ---------- */
+.cms-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.cms-title + .cms-faq {
+  margin-top: 39px;             /* heading -> first question (heading margin-bottom-oda collapse aagum) */
+}
+.cms-faq-item {
+  background: #ffffff;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.cms-faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;            /* closed item = 56px */
+  text-align: left;
+  color: #222222;
+  cursor: pointer;
+}
+.cms-faq-q:focus-visible {
+  outline: 2px solid #ff9900;
+  outline-offset: -3px;
+}
+.cms-faq-chevron {
+  flex-shrink: 0;
+}
+.cms-faq-item.open {
+  background: #ff9900;
+  border-color: #ff9900;
+}
+.cms-faq-item.open .cms-faq-q {
+  color: #ffffff;
+}
+.cms-faq-a {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.cms-faq-a p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #ffffff;
+}
+
+/* =============== Tablet (<= 1024px) =============== */
+@media (max-width: 1024px) {
+  .cms {
+    padding: 80px 32px;
+  }
+  .cms-container {
+    grid-template-columns: 1fr;
+    row-gap: 60px;
+  }
+  /* content mela, sidebar keezha */
+  .cms-main {
+    order: 1;
+    width: 100%;
+  }
+  .cms-sidebar {
+    order: 2;
+    flex-direction: row;
+    gap: 30px;
+    align-items: flex-start;
+  }
+  .cms-cat {
+    flex: 1;
+  }
+  .cms-help {
+    flex: 0 0 377px;
+  }
+  .cms-main-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 851 / 571;
+    border-radius: 32px;
+  }
+  .cms-fixed {
+    white-space: normal;
+  }
+  .cms-br {
+    display: none;
+  }
+  .cms-title {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+  .cms-title--section {
+    margin-top: 40px;
+  }
+  .cms-plan-images img,
+  .cms-plan-ph {
+    border-radius: 32px;
+  }
+}
+
+/* =============== Mobile (<= 768px) =============== */
+@media (max-width: 768px) {
+  .cms {
+    padding: 60px 20px;
+  }
+  .cms-sidebar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 30px;
+  }
+  .cms-help {
+    flex: none;
+    width: 100%;
+    max-width: 377px;
+    height: auto;
+    aspect-ratio: 377 / 407;
+  }
+  .cms-main-img {
+    border-radius: 24px;
+  }
+  .cms-title {
+    font-size: 34px;
+  }
+  .cms-features {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+  .cms-feature {
+    padding-bottom: 30px;
+  }
+  .cms-check {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cms-plan-images img,
+  .cms-plan-ph {
+    border-radius: 24px;
+  }
+  .cms-faq {
+    gap: 20px;
+  }
+  .cms-faq-q {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+/* =============== Small mobile (<= 480px) =============== */
+@media (max-width: 480px) {
+  .cms {
+    padding: 50px 16px;
+  }
+  .cms-title {
+    font-size: 28px;
+  }
+  .cms-check {
+    grid-template-columns: 1fr;
+  }
+  .cms-plan-images {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .cms-cat-head {
+    padding: 0 20px;
+    font-size: 18px;
+  }
+  .cms-cat-list {
+    padding: 8px 20px;
+  }
+}

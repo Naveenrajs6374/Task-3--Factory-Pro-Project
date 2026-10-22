@@ -1,0 +1,219 @@
+/* ===== Figma exact values (frame 1920 x 1061.5, container 1280, left 320) =====
+   Section bg   : #F5F5F5 + faint dotted world map
+   Photo        : 610 x 641 | radius 40 | left 320
+   Content      : 610 wide  | left 990 (60px gap) | vertically centered with photo
+   Label/Heading: 14px label, 50px / 60px heading (light + bold)
+   Quote        : 20px / 34px / weight 500 | #81848A | 4 lines
+   Author       : 60px avatar | name + role
+   Arrows       : 56 x 56 orange (#FF9900) | 30px gap | right aligned to 1600
+   Divider      : 80px below photo | 1280 wide
+   Logos strip  : 1280 x 40 | 80px below divider
+*/
+.client {
+  width: 100%;
+  background-color: #f5f5f5;
+  background-image: var(--client-map);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Manrope', sans-serif;
+  color: #222222;
+}
+.client-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 110px 0;
+}
+
+/* ---------- ROW ---------- */
+.client-row {
+  display: flex;
+  align-items: center;       /* content centered against the photo */
+  gap: 60px;
+}
+.client-photo {
+  width: 610px;
+  height: 641px;
+  flex-shrink: 0;
+  display: block;
+  object-fit: cover;
+  border-radius: 40px;
+}
+.client-content {
+  width: 610px;
+}
+.client-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 16.8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #222222;
+}
+.client-label img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.client-title {
+  margin: 15px 0 0;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 60px;
+  letter-spacing: -0.45px;
+  color: #222222;
+}
+.client-title span {
+  display: block;
+  font-weight: 700;
+}
+.client-quote {
+  margin: 88px 0 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 34px;
+  color: #81848a;
+}
+
+/* author + arrows */
+.client-bottom {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+.client-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.client-author img {
+  width: 60px;
+  height: 60px;
+  display: block;
+}
+.client-author h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #222222;
+}
+.client-author p {
+  margin: 4px 0 0;
+  font-size: 16px;
+  line-height: 27.2px;
+  color: #81848a;
+}
+.client-arrows {
+  display: flex;
+  gap: 30px;
+  margin-top: 4px;            /* arrows sit 4px lower than the avatar top (Figma) */
+}
+.client-arrows button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  background: #ff9900;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.client-arrows button:hover {
+  background: #e08600;
+  transform: translateY(-2px);
+}
+
+/* divider + logos */
+.client-divider {
+  height: 1px;
+  margin: 79.5px 0;
+  border: 0;
+  background: #ebebeb;
+}
+.client-logos {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =====================================================
+   MEDIA QUERIES  (Desktop 1281px+ = Figma 1920px design)
+   ===================================================== */
+
+/* ---------- Tablet & below (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .client-container {
+    padding: 80px 40px;
+  }
+  .client-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  .client-photo {
+    width: 100%;
+    max-width: 610px;
+  }
+  .client-content {
+    width: 100%;
+  }
+  .client-quote {
+    margin-top: 30px;
+  }
+  .client-divider {
+    margin: 60px 0;
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .client-container {
+    padding: 60px 24px;
+  }
+  .client-photo {
+    border-radius: 30px;
+  }
+  .client-title {
+    font-size: 34px;
+    line-height: 42px;
+  }
+  .client-arrows {
+    gap: 14px;
+  }
+  .client-logos {
+    width: 100%;
+    min-width: 560px;          /* keep logos readable - scroll sideways */
+  }
+  .client-logos-wrap {
+    overflow-x: auto;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .client-container {
+    padding: 48px 16px;
+  }
+  .client-title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .client-quote {
+    font-size: 16px;
+    line-height: 27px;
+  }
+  .client-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}

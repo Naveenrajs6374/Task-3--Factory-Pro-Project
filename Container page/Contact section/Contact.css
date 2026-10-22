@@ -1,0 +1,280 @@
+/* ===== Contact Us (Figma frame 1920 x 879, container 1280, left 320) =====
+   Section bg   : #F5F5F5 + factory sketch (bottom-left, 659px)
+   Padding      : 110 top / 110 bottom
+   Left column  : 480 wide  | vertically centered against the card
+   Label        : 16.8px high | heading 50px / 60px (light + bold "with us") | 15px below label
+   Paragraph    : 16px / 27.2px #81848A | 20px below heading
+   Info list    : 40px below paragraph | icon 60 x 60 (#FF9900, radius 10) | 40px + 1px line + 40px between items
+   Card         : 731 x ~659 | right aligned (ends at 1600) | white | radius 40 | padding 40
+   Card heading : "Contact me" 50px / 50px
+   Fields       : 60px high, 24px gap, radius 10, 1px border | first/last name 2 columns (30px gap)
+   Textarea     : ~136px high
+   Button       : 49px high | 2px #FF9900 border | radius 10
+   Class names "contact-*" */
+.contact {
+  width: 100%;
+  background: #f5f5f5 url('../../assets/Container page image/Contact us/about-us-bg-img.svg (1).png') no-repeat left bottom;
+  background-size: 659px auto;
+  font-family: 'Manrope', sans-serif;
+  color: #222222;
+}
+.contact-container {
+  display: flex;
+  align-items: center;           /* left column centered against the card */
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 110px 0;
+}
+
+/* ---------- LEFT ---------- */
+.contact-left {
+  width: 480px;
+  flex-shrink: 0;
+}
+.contact-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 16.8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #222222;
+}
+.contact-label img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.contact-title {
+  margin: 15px 0 0;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 60px;
+  letter-spacing: -0.45px;
+  color: #222222;
+  white-space: nowrap;
+}
+.contact-title span {
+  font-weight: 700;
+}
+.contact-text {
+  margin: 20px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #81848a;
+}
+
+/* info list */
+.contact-info {
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.contact-info li {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 0;
+  border-bottom: 1px solid #ebebeb;
+}
+.contact-info li:first-child {
+  padding-top: 0;
+}
+.contact-info li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.contact-info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  background: #ff9900;
+  border-radius: 10px;
+}
+.contact-info-icon img {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+.contact-info h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #222222;
+}
+.contact-info p {
+  margin: 4px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #81848a;
+}
+
+/* ---------- RIGHT : FORM CARD ---------- */
+.contact-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24.5px;
+  width: 731px;
+  margin-right: 2px;             /* Figma: card right edge 1598 */
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+}
+.contact-card h2 {
+  margin: 0 0 14.2px;            /* 24.5px gap + 14.2 = ~38.7px below heading box */
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 57px;
+  letter-spacing: -0.45px;
+  color: #222222;
+}
+.contact-card h2 span {
+  font-weight: 700;
+}
+.contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.contact-card input,
+.contact-card textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 16px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  color: #222222;
+  background: #ffffff;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.contact-card input {
+  height: 60px;
+}
+.contact-card textarea {
+  height: 133px;
+  padding: 20px 16px;
+  resize: none;
+}
+.contact-card input::placeholder,
+.contact-card textarea::placeholder {
+  color: #81848a;
+  opacity: 1;
+}
+.contact-card input:focus,
+.contact-card textarea:focus {
+  border-color: #ff9900;
+}
+
+.contact-submit {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 23.3px;            /* 24.5px gap + 23.3 = ~48px above button */
+}
+.contact-submit button {
+  box-sizing: border-box;
+  height: 49px;
+  padding: 0 20px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222222;
+  background: transparent;
+  border: 2px solid #ff9900;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.contact-submit button:hover {
+  background: #ff9900;
+  color: #ffffff;
+}
+.contact-sent {
+  font-size: 14px;
+  color: #81848a;
+}
+
+/* =====================================================
+   MEDIA QUERIES  (Desktop 1025px+ = Figma 1920px design)
+   ===================================================== */
+
+/* ---------- Tablet & below (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .contact {
+    background-size: 480px auto;
+  }
+  .contact-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 60px;
+    padding: 80px 40px;
+  }
+  .contact-left {
+    width: 100%;
+  }
+  .contact-title {
+    font-size: 42px;
+    line-height: 1.2;
+    white-space: normal;
+  }
+  .contact-card {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .contact {
+    background-size: 340px auto;
+  }
+  .contact-container {
+    padding: 60px 24px;
+  }
+  .contact-title {
+    font-size: 34px;
+  }
+  .contact-card {
+    padding: 30px 24px;
+    border-radius: 30px;
+  }
+  .contact-card h2 {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+  .contact-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 48px 16px;
+  }
+  .contact-title {
+    font-size: 28px;
+  }
+  .contact-info li {
+    padding: 28px 0;
+  }
+  .contact-info p {
+    font-size: 15px;
+  }
+}

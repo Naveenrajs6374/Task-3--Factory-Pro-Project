@@ -1,0 +1,253 @@
+/* ===== Figma exact values (frame 1920px, container 1280px, left 320) =====
+   Background   : 1920 x 581.8   | image (no blur) + #222 70% overlay
+   Label        : 610 x 16.8     | top 110    | left 320
+   Heading      : 610 x 120      | top 141.79 | left 320 (50px / 60px, white)
+   Paragraph    : ~550 wide      | left ~1050 | 16px / 27.2px, white
+   Card         : 1280 x 360.75  | top 441.79 (overlaps bg bottom) | left 320
+                  radius 40 | #FFFFFF | 1px border #FFFFFF | 4 columns + dividers
+   Icons        : 60 x 60
+   Arrow button : ~75 x 40 | #F5F5F5 | radius 8
+*/
+.services {
+  position: relative;
+  width: 100%;
+  margin-bottom: 220.75px;       /* card bottom 802.54 - bg height 581.8 = overhang */
+  font-family: 'Manrope', sans-serif;
+  color: #ffffff;
+}
+
+.services-bg {
+  position: relative;
+  width: 100%;
+  height: 581.8px;
+  overflow: hidden;
+}
+/* background image - Figma la blur illa, sharp ah thaan irukku */
+.services-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--services-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* dark overlay - Figma: #222222 @ 70% (pure black illa) */
+.services-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(34, 34, 34, 0.7);
+}
+
+.services-container {
+  position: relative;            /* above overlay */
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 110px;
+}
+
+/* ---------- LEFT ---------- */
+.services-head {
+  width: 610px;
+  flex-shrink: 0;
+}
+.services-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 16.8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #ffffff;
+}
+.services-label img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.services-title {
+  margin: 15px 0 0;
+  height: 120px;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 60px;
+  letter-spacing: -0.45px;
+  color: #ffffff;
+}
+.services-title span {
+  display: block;
+  font-weight: 700;
+}
+
+/* ---------- RIGHT ---------- */
+.services-text {
+  width: 550px;
+  margin: 50px 0 0 120px;        /* left = 320 + 610 + 120 = 1050 */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #ffffff;
+}
+
+/* ---------- CARD ---------- */
+.services-card {
+  position: absolute;
+  top: 441.79px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  width: 1280px;
+  height: 360.75px;
+  padding: 0 33px;
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  color: #222222;
+}
+.services-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 304px;
+  padding: 61px 0 60px 30px;
+}
+/* divider line only from icon top to button bottom (not full card height) */
+.services-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 61px;
+  bottom: 60px;
+  right: 0;
+  width: 1px;
+  background: #ebebeb;
+}
+.services-icon {
+  width: 60px;
+  height: 60px;
+  display: block;
+}
+.services-item-title {
+  max-width: 250px;
+  margin: 22px 0 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #222222;
+}
+.services-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 40px;
+  margin-top: auto;
+  background: #f5f5f5;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+.services-arrow:hover {
+  background: #ff9900;
+}
+
+/* =====================================================
+   MEDIA QUERIES  (Desktop 1025px+ = Figma 1920px design)
+   ===================================================== */
+
+/* ---------- Tablet & below (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .services {
+    margin-bottom: 0;
+  }
+  .services-bg {
+    height: auto;
+    padding-bottom: 60px;
+  }
+  .services-container {
+    flex-direction: column;
+    gap: 24px;
+    max-width: 100%;
+    padding: 80px 40px 0;
+  }
+  .services-head {
+    width: 100%;
+  }
+  .services-title {
+    height: auto;
+    font-size: 42px;
+    line-height: 1.2;
+  }
+  .services-text {
+    width: 100%;
+    max-width: 640px;
+    margin: 0;
+  }
+  .services-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    flex-wrap: wrap;
+    width: calc(100% - 80px);
+    max-width: 700px;
+    height: auto;
+    margin: -40px auto 80px;
+    padding: 20px;
+    border-radius: 30px;
+  }
+  .services-item {
+    width: 50%;
+    padding: 30px 20px;
+    gap: 0;
+  }
+  .services-item:nth-child(2n)::after {
+    display: none;
+  }
+  .services-arrow {
+    margin-top: 24px;
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .services-container {
+    padding: 60px 24px 0;
+  }
+  .services-title {
+    font-size: 34px;
+  }
+  .services-card {
+    width: calc(100% - 48px);
+    margin-bottom: 60px;
+  }
+  .services-item {
+    width: 100%;
+  }
+  .services-item::after {
+    display: none;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .services-container {
+    padding: 48px 16px 0;
+  }
+  .services-title {
+    font-size: 28px;
+  }
+  .services-text {
+    font-size: 15px;
+  }
+  .services-card {
+    width: calc(100% - 32px);
+  }
+}

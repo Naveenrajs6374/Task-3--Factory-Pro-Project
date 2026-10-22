@@ -1,0 +1,206 @@
+/* ===== Our Team (Figma frame 1920px, container 1280px, left 320) =====
+   Label        : 610 x 16.8     | top 6340.06 | left 320
+   Heading      : 50px / 60px, 2 lines = 120px | 15px below label
+   Button       : 166.69 x 50    | top 6390.95 | left 1433.31 (right edge = 1600) | radius 10 | #FF9900
+   Cards        : 297.5 x 418.31 | 4 columns, 30px gap | top = heading bottom + 80
+   Card image   : 297.5 x 343.12 (radius already inside PNG)
+   Card text    : 297.5 x 56.19  | 19px below image | name + role, centered
+   Class names "ourteam-*" - vera component CSS oda conflict aagaadhu. */
+.ourteam {
+  width: 100%;
+  background: #ffffff;
+  font-family: 'Manrope', sans-serif;
+  color: #222222;
+}
+.ourteam-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 110px 0;
+}
+
+/* ---------- HEADER ---------- */
+.ourteam-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.ourteam-head {
+  width: 610px;
+  flex-shrink: 0;
+}
+.ourteam-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 16.8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #222222;
+}
+.ourteam-label img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.ourteam-title {
+  margin: 15px 0 0;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 60px;           /* 2 lines = 120px */
+  letter-spacing: -0.45px;
+  color: #222222;
+}
+.ourteam-title span {
+  display: block;
+  font-weight: 700;
+}
+
+/* Button : 2px orange border + white box + orange arrow area (166.69 x 50) */
+.ourteam-btn {
+  display: inline-flex;
+  align-items: stretch;
+  flex-shrink: 0;
+  height: 50px;
+  margin-top: 50.89px;         /* button top 6390.95 - label top 6340.06 */
+  padding: 2px;
+  background: #ff9900;
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+}
+.ourteam-btn-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 124.69px;
+  height: 46px;
+  background: #ffffff;
+  border-radius: 8px;
+  color: #222222;
+  font-size: 14px;
+  font-weight: 500;
+}
+.ourteam-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+}
+.ourteam-btn-icon img {
+  width: 20px;
+  height: auto;
+  display: block;
+}
+
+/* ---------- CARDS ---------- */
+.ourteam-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));   /* 4 x 297.5 + 3 x 30 = 1280 */
+  gap: 30px;
+  margin-top: 80px;
+}
+.ourteam-card {
+  text-align: center;
+}
+.ourteam-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 297.5 / 343.12;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.ourteam-card:hover .ourteam-photo {
+  transform: translateY(-4px);
+}
+.ourteam-info {
+  margin-top: 19px;            /* image bottom 343.12 -> text top 362.12 */
+}
+.ourteam-name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #111111;
+}
+.ourteam-role {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28.19px;        /* 28 + 28.19 = 56.19 */
+  color: #81848a;
+}
+
+/* =====================================================
+   MEDIA QUERIES  (Desktop 1025px+ = Figma 1920px design)
+   ===================================================== */
+
+/* ---------- Tablet & below (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .ourteam-container {
+    padding: 80px 40px;
+  }
+  .ourteam-top {
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 24px;
+  }
+  .ourteam-head {
+    width: auto;
+    flex-shrink: 1;
+  }
+  .ourteam-title {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+  .ourteam-btn {
+    margin-top: 0;
+  }
+  .ourteam-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 24px;
+    margin-top: 50px;
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .ourteam-container {
+    padding: 60px 24px;
+  }
+  .ourteam-title {
+    font-size: 34px;
+  }
+  .ourteam-grid {
+    gap: 32px 20px;
+    margin-top: 40px;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) : 2 columns apdiye irukkum, text mattum chinnadhu ---------- */
+@media (max-width: 480px) {
+  .ourteam-container {
+    padding: 48px 16px;
+  }
+  .ourteam-title {
+    font-size: 28px;
+  }
+  .ourteam-grid {
+    gap: 28px 14px;
+    margin-top: 32px;
+  }
+  .ourteam-info {
+    margin-top: 12px;
+  }
+  .ourteam-name {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  .ourteam-role {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}

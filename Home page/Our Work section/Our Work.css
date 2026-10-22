@@ -1,0 +1,267 @@
+/* ===== Figma exact values (frame 1920px, container 1280px, left 320) =====
+   Label        : 610 x 16.8     | top 4976.92 | left 320
+   Heading      : 610 x 120      | 15px below label (50px / 60px)
+   Paragraph    : 545.59 x 49.18 | left 1050 | 16px / 27.2px | #81848A
+   Filter list  : 1280 x 25.59   | 80px below heading | centered
+   Cards (Link) : 625 x 437.5    | 2 columns, 30px gap | radius already inside PNG
+   Card title   : centered under image | 20px / 500
+   Category tag : top-left (40/40) | 16px | padding 8/12 | rgba(129,132,138,.7) | blur
+*/
+.work {
+  width: 100%;
+  background: #ffffff;
+  font-family: 'Manrope', sans-serif;
+  color: #222222;
+}
+.work-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 110px 0;
+}
+
+/* ---------- HEADER ---------- */
+.work-top {
+  display: flex;
+  align-items: flex-start;
+}
+.work-head {
+  width: 610px;
+  flex-shrink: 0;
+}
+.work-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 16.8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #222222;
+}
+.work-label img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.work-title {
+  margin: 15px 0 0;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 60px;
+  letter-spacing: -0.45px;
+  color: #222222;
+}
+.work-title span {
+  display: block;
+  font-weight: 700;
+}
+.work-text {
+  width: 550px;                  /* Figma box 545.59 - line 1 is 546px in browser, so 550 keeps 'excellence' on line 1 */
+  margin: 50.7px 0 0 120px;      /* left = 320 + 610 + 120 = 1050 */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #81848a;
+}
+
+/* ---------- FILTER LIST ---------- */
+.work-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 25.59px;
+  margin: 80px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.work-filter li {
+  display: flex;
+  align-items: center;
+}
+.work-tab {
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 25.59px;
+  color: #222222;
+  transition: color 0.2s ease;
+}
+.work-tab:hover,
+.work-tab--active {
+  color: #ff9900;
+}
+.work-slash {
+  margin: 0 29px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222222;
+}
+.work-slash--active {
+  color: #ff9900;
+}
+.work-dot {
+  width: 4px;
+  height: 4px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: #222222;
+}
+
+/* ---------- GRID ---------- */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 625px);
+  justify-content: space-between;
+  gap: 28px 30px;
+  margin-top: 50px;
+}
+.work-card {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #222222;
+}
+.work-card-img {
+  position: relative;
+  width: 625px;
+  height: 437.5px;
+  overflow: hidden;
+  border-radius: 40px;
+}
+.work-card-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.work-card:hover .work-card-img img {
+  transform: scale(1.04);
+}
+.work-tag {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  padding: 8px 12px;             /* Figma chip: Automation 111 x 38, Infrastructure 126 x 38 */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #ffffff;
+  background: rgba(129, 132, 138, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+}
+.work-card h3 {
+  margin: 30px 0 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 27px;
+  color: #222222;
+  transition: color 0.2s ease;
+}
+.work-card:hover h3 {
+  color: #ff9900;
+}
+.work-empty {
+  margin: 80px 0 0;
+  text-align: center;
+  font-size: 16px;
+  color: #81848a;
+}
+
+/* =====================================================
+   MEDIA QUERIES  (Desktop 1281px+ = Figma 1920px design)
+   ===================================================== */
+
+/* ---------- Tablet & below (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .work-container {
+    padding: 80px 40px;
+  }
+  .work-top {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .work-head {
+    width: 100%;
+  }
+  .work-title {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+  .work-text {
+    margin: 0;
+    max-width: 640px;
+  }
+  .work-filter {
+    height: auto;
+    gap: 10px 0;
+    margin-top: 50px;
+  }
+  .work-slash {
+    margin: 0 18px;
+  }
+  .work-text {
+    width: 100%;               /* desktop fixed 550px -> fluid */
+  }
+  /* desktop: repeat(2, 625px) fixed -> fluid 2 columns */
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 24px;
+  }
+  .work-card-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 625 / 437.5;
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .work-container {
+    padding: 60px 24px;
+  }
+  .work-title {
+    font-size: 34px;
+  }
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-top: 40px;
+  }
+  .work-card-img {
+    border-radius: 30px;
+  }
+  .work-tag {
+    top: 20px;
+    left: 20px;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .work-container {
+    padding: 48px 16px;
+  }
+  .work-title {
+    font-size: 28px;
+  }
+  .work-text {
+    font-size: 15px;
+  }
+  .work-slash {
+    margin: 0 10px;
+  }
+  .work-card h3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

@@ -1,0 +1,273 @@
+/* ===== Figma exact values (frame 1920px, container 1280px, left 320) =====
+   Section padding : 130 top / 130 bottom (Services card bottom -> label = 130)
+   Label           : 625 x 16.8     | top 3008.84 | left 320
+   Heading         : 625 x 180      | 50px / 60px | 15px below label
+   Small images    : 297.5 x 211.8  | left 975 & 1302.5 | radius 40 (already in PNG)
+   Big image       : 585 x 497.25   | top 3300.64 (80px below row 1) | radius 40 (already in PNG)
+   Paragraph       : 600.73 wide    | 16px / 27.2px | #81848A
+   Stats           : 40px orange numbers + 16px labels
+   Avatars         : 60 x 66 each   | overlap ~20px
+   Watch intro     : play icon 66 x 66 + 20px gap + 16px / 27.2 SemiBold (600) uppercase #222
+*/
+.story {
+  width: 100%;
+  background: #ffffff;
+  font-family: 'Manrope', sans-serif;
+  color: #222222;
+}
+
+.story-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 110px 0;
+}
+
+/* ---------- ROW 1 ---------- */
+.story-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.story-head {
+  width: 625px;
+  flex-shrink: 0;
+}
+.story-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 16.8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #222222;
+}
+.story-label img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.story-title {
+  margin: 15px 0 0;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 60px;
+  letter-spacing: -0.45px;
+  color: #222222;
+}
+.story-title span {
+  display: block;
+  font-weight: 700;
+}
+.story-top-images {
+  display: flex;
+  gap: 30px;
+}
+.story-top-images img {
+  width: 297.5px;
+  height: 211.8px;
+  display: block;            /* rounded corners already inside the PNG */
+}
+
+/* ---------- ROW 2 ---------- */
+.story-bottom {
+  display: flex;
+  align-items: center;       /* content vertically centered with big image */
+  justify-content: space-between;
+  margin-top: 80px;
+}
+.story-main-img {
+  width: 585px;
+  height: 497.25px;
+  flex-shrink: 0;
+  display: block;
+}
+.story-content {
+  width: 625px;
+}
+.story-text {
+  max-width: 600.73px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #81848a;
+}
+.story-divider {
+  height: 1px;
+  margin: 58px 0 71px;
+  border: 0;
+  background: #eeeeee;
+}
+
+/* stats */
+.story-stats {
+  display: flex;
+}
+.story-stat {
+  width: 216px;
+  flex-shrink: 0;
+}
+.story-stat:last-child {
+  width: auto;
+}
+.story-stat h3 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+  color: #ff9900;
+}
+.story-stat p {
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #222222;
+}
+
+/* avatars + watch intro */
+.story-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 59px;
+}
+.story-avatars {
+  display: flex;
+  align-items: center;
+}
+.story-avatars img {
+  width: 60px;
+  height: auto;
+  display: block;
+}
+.story-avatars img + img {
+  margin-left: -20px;
+}
+.story-watch {
+  display: flex;
+  align-items: center;
+  gap: 20px;                    /* icon 66 -> text left 86 */
+  margin-left: 54px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+.story-watch img {
+  width: 66px;
+  height: 66px;
+  display: block;
+  transition: transform 0.2s ease;
+}
+.story-watch:hover img {
+  transform: scale(1.08);
+}
+.story-watch span {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 27.2px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #222222;
+}
+
+/* =====================================================
+   MEDIA QUERIES  (Desktop 1025px+ = Figma 1920px design)
+   ===================================================== */
+
+/* ---------- Tablet & below (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .story-container {
+    padding: 80px 40px;
+  }
+  .story-top {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .story-head {
+    width: 100%;
+  }
+  .story-title {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+  .story-top-images {
+    width: 100%;
+  }
+  .story-top-images img {
+    width: calc(50% - 15px);
+    height: auto;
+  }
+  .story-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 50px;
+  }
+  .story-main-img {
+    width: 100%;
+    max-width: 585px;
+    height: auto;
+  }
+  .story-content {
+    width: 100%;
+  }
+  .story-divider {
+    margin: 40px 0 40px;
+  }
+  .story-actions {
+    margin-top: 40px;
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .story-container {
+    padding: 60px 24px;
+  }
+  .story-title {
+    font-size: 34px;
+  }
+  .story-stats {
+    flex-wrap: wrap;
+    gap: 24px 32px;
+  }
+  .story-stat,
+  .story-stat:last-child {
+    width: auto;
+  }
+  .story-stat h3 {
+    font-size: 34px;
+    line-height: 40px;
+  }
+  .story-actions {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .story-watch {
+    margin-left: 0;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .story-container {
+    padding: 48px 16px;
+  }
+  .story-title {
+    font-size: 28px;
+  }
+  .story-top-images {
+    flex-direction: column;
+  }
+  .story-top-images img {
+    width: 100%;
+  }
+  .story-text {
+    font-size: 15px;
+  }
+}

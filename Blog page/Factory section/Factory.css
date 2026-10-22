@@ -1,0 +1,121 @@
+/* ===== Blog page : Factory section (Figma frame 1920 | container 1280 @ left 320) =====
+   Figma frame 1920 x 1801.2 = Hero 517 (Navbar ulla overlay) + indha section 1284.2 (footer illa)
+   Grid   : 3 columns x 2 rows, column gap 30, row pitch ~537
+   Image  : 404 x 368 (rounded corners PNG-la irukku)
+   Title  : Manrope 500 / 20px / 27.5px / #222
+   Link   : "Read More" Manrope 500 / 14px / #FF9900 + arrow
+   Desktop (1025px+) la main.jsx zoom-fit use pannum, adhunaala 1280 container 1920 ku scale aagum.
+   Class names "factory-*" - vera sections oda conflict aagaadhu. */
+.factory {
+  width: 100%;
+  background: #ffffff;
+  font-family: 'Manrope', sans-serif;
+  color: #222222;
+}
+.factory-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 100px 0 157px;       /* section = 1284.2 : 100 + 2 rows (490) + gap 47 + 157 */
+}
+
+.factory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 30px;
+  row-gap: 47px;
+}
+
+.factory-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+}
+
+.factory-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 404 / 368;
+  display: block;
+  object-fit: cover;
+  border-radius: 40px;           /* raw JPG/AVIF images ku (PNG la already rounded) */
+  transition: transform 0.4s ease;
+}
+.factory-card:hover .factory-img {
+  transform: translateY(-4px);
+}
+
+.factory-title {
+  margin: 35px 0 0;
+  min-height: 55px;             /* 2 lines (27.5 x 2) - ella cards la Read More same line la irukka */
+  max-width: 404px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 27.5px;
+  color: #222222;
+  transition: color 0.2s ease;
+}
+.factory-card:hover .factory-title {
+  color: #ff9900;
+}
+
+.factory-more {
+  margin-top: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #ff9900;
+}
+
+/* =====================================================
+   MEDIA QUERIES
+   ===================================================== */
+
+/* ---------- Tablet (<= 1024px) : 2 columns ---------- */
+@media (max-width: 1024px) {
+  .factory-container {
+    padding: 70px 32px 80px;
+  }
+  .factory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 40px;
+  }
+  .factory-title {
+    margin-top: 24px;
+    max-width: none;
+    font-size: 18px;
+    line-height: 25px;
+    min-height: 50px;
+  }
+}
+
+/* ---------- Mobile (<= 640px) : 1 column ---------- */
+@media (max-width: 640px) {
+  .factory-container {
+    padding: 50px 20px 60px;
+  }
+  .factory-grid {
+    grid-template-columns: 1fr;
+    row-gap: 36px;
+  }
+  .factory-title {
+    margin-top: 20px;
+    min-height: 0;                /* single column: fixed height thevai illa */
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .factory-container {
+    padding: 40px 16px 50px;
+  }
+  .factory-title {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

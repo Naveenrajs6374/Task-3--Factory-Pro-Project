@@ -1,0 +1,293 @@
+/* ===== Figma exact values (frame 1920 x 1005.14, container 1280, left 320) =====
+   Background   : #F5F5F5
+   Label        : 610 x 16.8     | top 110    | left 320
+   Heading      : 610 x 120      | top 141.8  | left 320 (50px / 60px, #222, 300 + 700)
+   Paragraph    : ~535 wide      | top 147.11 | left 1050 | 16px / 27.2px | #81848A
+   Image        : 595 x 553.34   | top 341.8  | left 320  | radius 40  (80px below heading)
+   Step cards   : 625 x 148.38   | top 341.8  | left 975  | radius 40  (image left 320 + 595 + 60 gap)
+                  3 cards stacked from the image top, 30px gap: tops 341.8 / 520.18 / 698.55
+                  (cards end at 846.94, image ends at 895.14 -> NOT stretched to image height)
+                  padding 30 top/bottom | title 24 + 10 gap + desc 54.4 = 148.4
+   Active card  : #FF9900 (step 02) | white text
+   Number       : 48px / 700 | #FF9900 | title starts at x = 103.81 (01) / 111.69 (02) / 110.98 (03)
+   Title        : 20px / 600 / 24px | letter-spacing -0.2px | #222222   (box 249.48 x 27)
+   Description  : 16px / 27.2px | #81848A | 2 lines, 10px below title
+   Paragraph    : 534.78 x 76.38 | top 147.11 | left 1050 | 16px / 27.2px | #81848A
+   Section pad  : 110px top & bottom
+*/
+.process {
+  width: 100%;
+  background: #f5f5f5;
+  font-family: 'Manrope', sans-serif;
+  color: #222222;
+}
+.process-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 110px 0;
+}
+
+/* ---------- HEADER ---------- */
+.process-top {
+  display: flex;
+  align-items: flex-start;
+}
+.process-head {
+  width: 610px;
+  flex-shrink: 0;
+}
+.process-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 16.8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #222222;
+}
+.process-label img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.process-title {
+  margin: 15px 0 0;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 60px;
+  letter-spacing: -0.45px;
+  color: #222222;
+}
+.process-title span {
+  font-weight: 700;
+}
+.process-text {
+  width: 550px;
+  margin: 34.5px 0 0 120px;       /* left = 320 + 610 + 120 = 1050 | text top 147.11 (line box starts 2.6px above) */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #81848a;
+}
+
+/* forced line breaks (same as Figma) - hidden on tablet / mobile */
+.process-br {
+  display: inline;
+}
+@media (min-width: 1025px) {
+  .process-text,
+  .process-step-info p {
+    white-space: nowrap;        /* desktop la Figma line break mattum, extra wrap varadhu */
+  }
+}
+
+/* ---------- BODY ---------- */
+.process-body {
+  display: flex;
+  align-items: stretch;
+  gap: 60px;                      /* 320 + 595 + 60 = 975 */
+  margin-top: 80px;               /* heading bottom 261.8 -> image top 341.8 */
+}
+.process-media {
+  flex: 0 0 595px;
+  width: 595px;
+  height: 553.34px;
+}
+.process-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 40px;
+}
+
+/* ---------- STEPS ---------- */
+.process-steps {
+  flex: 0 0 625px;
+  width: 625px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;    /* cards start at image top */
+  gap: 30px;                      /* 341.8 -> 520.18 -> 698.55 (Figma card 03 top = 698.55) */
+}
+.process-step {
+  display: flex;
+  align-items: center;
+  gap: 19.5px;
+  height: 148.38px;
+  padding: 30px 32px;             /* number + gap = 52px -> title left 103.81 / 111.69 / 110.98 */
+  border-radius: 40px;
+  background: transparent;
+  cursor: default;
+  outline: none;
+  transition: background 0.3s ease;
+}
+.process-step-number {
+  flex-shrink: 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  color: #ff9900;
+  transition: color 0.3s ease;
+}
+.process-step-info {
+  min-width: 0;
+}
+.process-step-info h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  color: #222222;
+  transition: color 0.3s ease;
+}
+.process-step-info p {
+  margin: 10px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #81848a;
+  transition: color 0.3s ease;
+}
+.process-step--active {
+  background: #ff9900;
+}
+.process-step--active .process-step-number,
+.process-step--active .process-step-info h3,
+.process-step--active .process-step-info p {
+  color: #ffffff;
+}
+
+/* =====================================================
+   MEDIA QUERIES  (Desktop 1441px+ = Figma 1920px design)
+   ===================================================== */
+
+/* ---------- Tablet & below (<= 1024px) : everything stacks ---------- */
+@media (max-width: 1024px) {
+  .process-br {
+    display: none;
+  }
+  .process-container {
+    padding: 80px 40px;
+  }
+  .process-top {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .process-head {
+    width: 100%;
+  }
+  .process-title {
+    font-size: 42px;
+    line-height: 50px;
+  }
+  .process-text {
+    width: 100%;
+    max-width: 640px;
+    margin: 0;
+  }
+  .process-body {
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 50px;
+  }
+  .process-media {
+    flex: none;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 595 / 553.34;
+    max-height: 520px;
+  }
+  .process-steps {
+    flex: none;
+    width: 100%;
+    gap: 20px;
+  }
+  .process-step {
+    height: auto;
+    min-height: 130px;
+    padding: 24px 30px;
+    border-radius: 32px;
+  }
+  .process-step-number {
+    font-size: 40px;
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .process-container {
+    padding: 60px 24px;
+  }
+  .process-title {
+    font-size: 34px;
+    line-height: 42px;
+  }
+  .process-body {
+    gap: 30px;
+    margin-top: 40px;
+  }
+  .process-media {
+    max-height: 440px;
+  }
+  .process-media img {
+    border-radius: 30px;
+  }
+  .process-step {
+    gap: 16px;
+    padding: 22px 24px;
+    border-radius: 28px;
+  }
+  .process-step-number {
+    font-size: 36px;
+  }
+  .process-step-info h3 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .process-step-info p {
+    font-size: 15px;
+    line-height: 26px;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .process-container {
+    padding: 48px 16px;
+  }
+  .process-label {
+    font-size: 12px;
+  }
+  .process-title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .process-text {
+    font-size: 15px;
+    line-height: 26px;
+  }
+  .process-media img {
+    border-radius: 24px;
+  }
+  .process-step {
+    gap: 12px;
+    padding: 20px 18px;
+    border-radius: 24px;
+  }
+  .process-step-number {
+    font-size: 30px;
+  }
+  .process-step-info h3 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+  .process-step-info p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}

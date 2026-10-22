@@ -1,0 +1,294 @@
+/* ===== Figma exact values (frame 1920 x 766.94, container 1300 @ left 310, content 1280 @ left 320) =====
+   Footer bg       : #222222
+   Top padding     : 90
+   CTA block       : 1300 x 201 | padding 10 / 10 / 60 | border-bottom 1px white @10%
+                     heading 48px light (300) | text 16px/27.2 | badge 130 x 130 on the right
+   Middle block    : starts 291 | padding 60 top + 60 bottom
+                     brand  : logo 300x54 -> 12 gap -> text 16/27.2 (2 lines) -> 18 gap -> social 308x36
+                     links  : x 960 | 3 columns 193.38 / 193.23 / 213.39 | gap 20
+                              heading 20px/24 600 (-0.2px) -> 30 gap -> list (16px/27.2, row gap 15)
+   Copyright block : 1300 x 148.19 | border-top 1px white @10% | padding 60 | text centered 16px/27.2
+
+   IMPORTANT: main.jsx already zoom-fits the 1920 design for 1025px+ screens,
+   so there are NO laptop / 1440 breakpoints here. Only <= 1024px is responsive.
+*/
+.footer {
+  position: relative;
+  overflow: hidden;
+  padding-top: 90px;
+  background: #222222;
+  color: #ffffff;
+  font-family: 'Manrope', sans-serif;
+}
+
+/* faint factory illustration - bottom left (optional, see Footer.jsx) */
+.footer-bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 800px;
+  max-width: 70%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.footer-container {
+  position: relative;               /* above the background */
+  z-index: 1;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.footer p,
+.footer address {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  font-style: normal;
+  color: #ffffff;
+}
+
+/* ---------- ROW 1 : CTA ---------- */
+.footer-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 10px 10px 60px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-cta-title {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 60px;
+  color: #ffffff;
+}
+.footer-cta-text p {
+  margin-top: 12px;
+}
+.footer-badge {
+  display: block;
+  flex: none;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+.footer-badge img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.footer-badge:hover {
+  transform: rotate(20deg) scale(1.05);
+}
+
+/* ---------- ROW 2 : brand + links ---------- */
+.footer-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 60px 10px;
+}
+
+.footer-brand {
+  max-width: 300px;
+}
+.footer-logo {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+}
+.footer-logo img {
+  display: block;
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+}
+.footer-brand p {
+  max-width: 260px;
+  margin-top: 12px;
+}
+.footer-social {
+  display: block;
+  width: 308px;
+  max-width: none;                  /* global img{max-width:100%} would squash it */
+  height: 36px;
+  margin: 18px 0 0 -7px;            /* image has 7px transparent space on the left */
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: 193.38px 193.23px 213.39px;
+  column-gap: 20px;
+  width: 640px;
+  flex: none;
+}
+.footer-col h3 {
+  margin: 0 0 30px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  color: #ffffff;
+}
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.footer-col a {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-col a:hover {
+  color: #ff9900;
+}
+
+/* ---------- ROW 3 : copyright ---------- */
+.footer-bottom {
+  padding: 60px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+/* =====================================================
+   MEDIA QUERIES  (desktop 1025px+ = Figma 1920 design via zoom-fit)
+   ===================================================== */
+
+/* ---------- Tablet & below (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .footer {
+    padding-top: 70px;
+  }
+  .footer-container {
+    padding: 0 40px;
+  }
+  .footer-bg {
+    width: 560px;
+    max-width: 80%;
+  }
+  .footer-cta {
+    padding: 0 0 48px;
+  }
+  .footer-cta-title {
+    font-size: 40px;
+    line-height: 48px;
+  }
+  .footer-badge {
+    width: 110px;
+    height: 110px;
+  }
+  .footer-main {
+    flex-direction: column;
+    gap: 48px;
+    padding: 48px 0;
+  }
+  .footer-links {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .footer-bottom {
+    padding: 40px 0;
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .footer {
+    padding-top: 60px;
+  }
+  .footer-container {
+    padding: 0 24px;
+  }
+  .footer-cta {
+    gap: 24px;
+    padding-bottom: 40px;
+  }
+  .footer-cta-title {
+    font-size: 34px;
+    line-height: 42px;
+  }
+  .footer-badge {
+    width: 100px;
+    height: 100px;
+  }
+  .footer-main {
+    gap: 40px;
+    padding: 40px 0;
+  }
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 40px;
+  }
+  .footer-col:nth-child(3) {
+    grid-column: 1 / -1;            /* Contact full width below */
+  }
+  .footer-bottom {
+    padding: 32px 0;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .footer {
+    padding-top: 48px;
+  }
+  .footer-container {
+    padding: 0 16px;
+  }
+  .footer-cta {
+    flex-direction: column;           /* badge goes below the text */
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 32px;
+  }
+  .footer-cta-title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .footer-cta-text p {
+    font-size: 15px;
+    line-height: 24px;
+  }
+  .footer-badge {
+    width: 84px;
+    height: 84px;
+  }
+  .footer-main {
+    gap: 32px;
+    padding: 32px 0;
+  }
+  .footer-col h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  .footer-bottom {
+    padding: 28px 0;
+  }
+  .footer-bottom p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+/* ---------- Tiny (<= 360px) ---------- */
+@media (max-width: 360px) {
+  .footer-cta-title {
+    font-size: 25px;
+    line-height: 32px;
+  }
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+}

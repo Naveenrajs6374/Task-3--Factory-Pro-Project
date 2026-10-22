@@ -1,0 +1,211 @@
+/* ===== Figma exact values (frame 1920px, container 1280px, left 320) =====
+   Section padding : 110 top / ~108 bottom
+   Label           : 610 x 16.8     | left 320
+   Heading         : 488 x 120      | 15px below label (50px / 60px, light + bold)
+   Paragraph       : 547.64 x 49.19 | left 960 | 16px / 27.2px | #81848A
+   Cards           : 625 x 479.75   | 2 columns, 30px gap | top 80px below heading
+   Card image      : 625 x 393.75   | radius 40 (already inside the PNG)
+   Info row        : 55px high, 30px below image | title (20px / 27.5px) + 50px arrow button
+*/
+.blog {
+  width: 100%;
+  background: #ffffff;
+  font-family: 'Manrope', sans-serif;
+  color: #222222;
+}
+.blog-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 110px 0;
+}
+
+/* ---------- HEADER ---------- */
+.blog-top {
+  display: flex;
+  align-items: flex-start;
+}
+.blog-head {
+  width: 640px;                 /* paragraph starts at 320 + 640 = 960 */
+  flex-shrink: 0;
+}
+.blog-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 16.8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #222222;
+}
+.blog-label img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.blog-title {
+  margin: 15px 0 0;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 60px;
+  letter-spacing: -0.45px;
+  color: #222222;
+}
+.blog-title span {
+  display: block;
+  font-weight: 700;
+}
+.blog-text {
+  width: 547.64px;
+  margin: 50.7px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #81848a;
+}
+
+/* ---------- GRID ---------- */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 625px);
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 80px;
+}
+.blog-card {
+  display: block;
+  text-decoration: none;
+  color: #222222;
+}
+.blog-card-img {
+  width: 625px;
+  height: 393.75px;
+  overflow: hidden;
+  border-radius: 40px;
+}
+.blog-card-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.blog-card:hover .blog-card-img img {
+  transform: scale(1.04);
+}
+.blog-card-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: 55px;
+  margin-top: 30px;
+}
+.blog-card-info h3 {
+  max-width: 400px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 27.5px;
+  letter-spacing: 0.2px;
+  color: #222222;
+  transition: color 0.2s ease;
+}
+.blog-card:hover .blog-card-info h3 {
+  color: #ff9900;
+}
+.blog-card-arrow {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  display: block;
+  transition: transform 0.25s ease;
+}
+.blog-card:hover .blog-card-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* =====================================================
+   MEDIA QUERIES  (Desktop 1281px+ = Figma 1920px design)
+   ===================================================== */
+
+/* ---------- Tablet & below (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .blog-container {
+    padding: 80px 40px;
+  }
+  .blog-top {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .blog-head {
+    width: 100%;
+  }
+  .blog-title {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+  .blog-text {
+    width: 100%;               /* desktop fixed 547.64px -> fluid */
+    max-width: 640px;
+    margin: 0;
+  }
+  .blog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));   /* desktop fixed 625px cols -> fluid */
+    gap: 30px 24px;
+    margin-top: 50px;
+  }
+  .blog-card-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 625 / 393.75;
+  }
+  .blog-card-info h3 {
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .blog-container {
+    padding: 60px 24px;
+  }
+  .blog-title {
+    font-size: 34px;
+  }
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 40px;
+  }
+  .blog-card-img {
+    border-radius: 30px;
+  }
+  .blog-card-info {
+    height: auto;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .blog-container {
+    padding: 48px 16px;
+  }
+  .blog-title {
+    font-size: 28px;
+  }
+  .blog-text {
+    font-size: 15px;
+  }
+  .blog-card-info h3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .blog-card-arrow {
+    width: 42px;
+    height: 42px;
+  }
+}

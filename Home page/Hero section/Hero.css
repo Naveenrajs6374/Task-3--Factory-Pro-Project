@@ -1,0 +1,241 @@
+/* ===== Figma exact values (frame 1920 x 1200, container 1280px, left 320) ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 1200px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Manrope', sans-serif;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 271.8px;        /* heading Top 271.8px */
+}
+
+/* Heading: 716.61 x 168 | 2 lines x 84px (70px * 1.2) | left 320 */
+.hero-title {
+  width: 716.61px;
+  height: 168px;
+  margin: 0;
+  font-size: 70px;
+  font-weight: 300;
+  line-height: 84px;
+  color: #ffffff;
+}
+.hero-title span {
+  display: block;
+  font-weight: 700;
+}
+
+/* Paragraph: 696.45 x 49.18 | top 461.8 | Manrope 400, 16px, line-height 27.2px, vertical align Middle */
+.hero-text {
+  display: flex;
+  align-items: center;         /* Figma vertical alignment: Middle */
+  width: 696.45px;
+  height: 49.18px;
+  margin: 22px 0 0;            /* 271.8 + 168 = 439.8 -> 461.8 */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #ffffff;
+}
+
+/* Button: outer = 2px orange padding + white box 139.42 x 46 (radius 8) + orange arrow area */
+.hero-btn {
+  display: inline-flex;
+  align-items: stretch;
+  height: 50px;
+  margin-top: 40px;            /* paragraph bottom 511 -> button top 551 */
+  padding: 2px;
+  background: #ff9d00;
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+}
+.hero-btn-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 139.42px;
+  height: 46px;
+  background: #ffffff;         /* #FFFFFF */
+  border-radius: 8px;          /* radius 8px */
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 500;
+}
+.hero-btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+}
+.hero-btn-icon img {
+  width: 16px;
+  height: auto;
+  display: block;
+}
+
+/* Features: parent (divider line) top ~915px | list 1280 x 27.19 | top 51 | left 10 (=320 absolute) */
+.hero-features {
+  position: absolute;
+  top: 914px;
+  left: 0;
+  width: 100%;
+  padding-top: 50px;           /* 1px border + 50px = list Top 51px */
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+.hero-features ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  width: 1280px;
+  height: 27.19px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hero-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.19px;
+  color: #ffffff;
+}
+.hero-features img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* =====================================================
+   MEDIA QUERIES
+   (Desktop 1025px+ = mela irukkura Figma 1920px design)
+   ===================================================== */
+
+/* ---------- Tablet & below (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 780px;
+  }
+
+  .hero-container {
+    max-width: 100%;
+    width: 100%;
+    padding: 170px 40px 60px;      /* navbar (80px) kku keezha */
+  }
+
+  .hero-title {
+    width: 100%;
+    height: auto;
+    font-size: 56px;
+    line-height: 1.2;
+  }
+
+  .hero-text {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .hero-btn {
+    margin-top: 32px;
+  }
+
+  /* absolute -> normal flow, hero keezha irukkum */
+  .hero-features {
+    position: static;
+    margin-top: auto;
+    padding: 32px 40px 40px;
+    justify-content: flex-start;
+  }
+  .hero-features ul {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px 40px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 680px;
+  }
+
+  .hero-container {
+    padding: 140px 24px 40px;      /* navbar (70px) kku keezha */
+  }
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    font-size: 15px;
+    line-height: 26px;
+  }
+
+  .hero-features {
+    padding: 28px 24px 32px;
+  }
+  .hero-features ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .hero {
+    min-height: 620px;
+  }
+
+  .hero-container {
+    padding: 120px 16px 32px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  .hero-text {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .hero-btn {
+    margin-top: 28px;
+  }
+  .hero-btn-text {
+    width: 125px;
+    font-size: 15px;
+  }
+
+  .hero-features {
+    padding: 24px 16px 28px;
+  }
+  .hero-features li {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}

@@ -1,0 +1,225 @@
+/* ===== Our Key Feature (Figma 1920 | container 1280 @ left 320) =====
+   Class names "keyfeature-*" - vera sections CSS oda conflict aagaadhu. */
+.keyfeature {
+  width: 100%;
+  padding: 110px 0;            /* mela / keezha 110px (Figma measure) */
+  background: #ffffff;
+  font-family: 'Manrope', sans-serif;
+}
+.keyfeature-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ---------- Header ---------- */
+.keyfeature-head {
+  display: flex;
+  gap: 120px;                  /* heading 610 | gap 120 | paragraph @ x=1050 */
+  align-items: flex-start;
+}
+.keyfeature-head-left {
+  width: 610px;
+  flex-shrink: 0;
+}
+.keyfeature-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 16.8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #222222;
+}
+.keyfeature-label img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.keyfeature-title {
+  margin: 15px 0 0;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 60px;           /* 2 lines = 120px */
+  letter-spacing: -0.45px;
+  color: #222222;
+}
+.keyfeature-title span {
+  display: block;
+  font-weight: 700;
+}
+.keyfeature-intro {
+  margin: 37px 0 0;            /* paragraph top - label top = 37px */
+  width: 545px;
+  font-size: 16px;             /* Figma : Manrope 400 / 16px / 27.2px / #81848A */
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #81848a;
+  white-space: nowrap;         /* <br> la irukkura Figma line breaks maaraadhu */
+}
+
+/* ---------- Grid : 1280 x 614.12 (border 1px #EBEBEB, radius 40) ---------- */
+.keyfeature-grid {
+  margin: 80px auto 0;         /* heading bottom -> grid top = 80px */
+  width: 100%;
+  max-width: 1280px;
+  display: grid;
+  grid-template-columns: 639px 639px;
+  grid-template-rows: minmax(306.56px, auto) minmax(305.56px, auto);   /* Figma height min; text wrap maarinaalum clip aagaadhu */
+  border: 1px solid #ebebeb;
+  border-radius: 0;            /* curve venam - restore panna 40px */
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.keyfeature-cell {
+  padding: 50px;
+}
+/* divider lines (Figma : right + bottom 1px #EBEBEB) */
+.keyfeature-cell:nth-child(1) {
+  border-right: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+}
+.keyfeature-cell:nth-child(2) {
+  border-bottom: 1px solid #ebebeb;
+}
+.keyfeature-cell:nth-child(3) {
+  border-right: 1px solid #ebebeb;
+}
+
+/* icon 50 + 28 | title 30 + 16 | text 3 lines (81.6) */
+.keyfeature-icon {
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin-bottom: 28px;
+}
+.keyfeature-cell-title {
+  margin: 0 0 16px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  color: #222222;
+}
+.keyfeature-cell-text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #81848a;
+}
+
+.keyfeature-image {
+  position: relative;          /* row height auto aanalum image full-ah fill aagum */
+  overflow: hidden;
+}
+.keyfeature-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ---------- Tablet (<= 1024px) : 2 x 2 grid fluid ---------- */
+@media (max-width: 1024px) {
+  .keyfeature {
+    padding: 80px 32px;
+  }
+  .keyfeature-head {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .keyfeature-head-left {
+    width: 100%;
+  }
+  .keyfeature-title {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+  .keyfeature-intro {
+    margin: 0;
+    width: 100%;
+    max-width: 600px;
+    white-space: normal;
+  }
+  .keyfeature-br {
+    display: none;
+  }
+  .keyfeature-grid {
+    margin-top: 40px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    border-radius: 0;
+  }
+  .keyfeature-cell {
+    padding: 32px;
+  }
+  .keyfeature-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 20px;
+  }
+  .keyfeature-cell-title {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+  .keyfeature-cell-text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .keyfeature-image {
+    min-height: 260px;
+  }
+}
+
+/* ---------- Mobile (<= 768px) : single column ---------- */
+@media (max-width: 768px) {
+  .keyfeature {
+    padding: 60px 20px;
+  }
+  .keyfeature-title {
+    font-size: 34px;
+  }
+  .keyfeature-grid {
+    grid-template-columns: 1fr;
+    border-radius: 0;
+  }
+  /* single column la ella cell-kum keezha mattum line */
+  .keyfeature-cell:nth-child(1),
+  .keyfeature-cell:nth-child(2),
+  .keyfeature-cell:nth-child(3) {
+    border-right: 0;
+    border-bottom: 1px solid #ebebeb;
+  }
+  .keyfeature-cell {
+    padding: 28px 24px;
+  }
+  .keyfeature-image {
+    min-height: 0;
+    aspect-ratio: 639 / 306;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .keyfeature {
+    padding: 50px 16px;
+  }
+  .keyfeature-title {
+    font-size: 28px;
+  }
+  .keyfeature-grid {
+    border-radius: 0;
+  }
+  .keyfeature-cell {
+    padding: 24px 20px;
+  }
+  .keyfeature-icon {
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -1,0 +1,359 @@
+/* ===== Figma exact values (frame 1920, container 1280, left 320) =====
+   Section      : white | padding 110px top & bottom
+   Label        : 14px / 700 / 16.8px | letter-spacing 2.8px | uppercase | #222   (icon 16px, gap 8px)
+   Heading      : 549 x 120 | top 141.8 (15px below label) | 50px / 60px | 300 + 700 | #222
+   Paragraph    : 488.06 x 49.18 | left 1050 | 16px / 27.2px | #81848A
+   Cards        : 406.61 x 542.75 | radius 40 | gap 30 | 80px below heading
+                  card 1 + 3 = #F5F5F5, card 2 (featured) = #FF9900
+   Card padding : 50px
+   Price        : "$" 30px/700 | "39" 60px/700 | "/month" 16px/400 (#81848A, white 80% on orange)
+   Plan name    : 20px / 600 | #222
+   Features     : 16px / 400 | 27.2px rows, 20px gap (pitch 47.2) | icon 24px, 18px gap
+   Button       : 2px border #FF9900 | height 51.2 | radius 8 | 16px / 600 | padding 0 20px
+   Notes row    : 676.02 x 27.19 centered, 60px below cards | 16px/400 | icon 20px, 16px gap, 41.5px between items
+*/
+.pricing {
+  width: 100%;
+  background: #ffffff;
+  font-family: 'Manrope', sans-serif;
+  color: #222222;
+}
+.pricing-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 110px 0;
+}
+
+/* ---------- HEADER ---------- */
+.pricing-top {
+  display: flex;
+  align-items: flex-start;
+}
+.pricing-head {
+  width: 549px;
+  flex-shrink: 0;
+}
+.pricing-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 16.8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2.8px;
+  text-transform: uppercase;
+  line-height: 16.8px;
+  color: #222222;
+}
+.pricing-label img {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+.pricing-title {
+  margin: 15px 0 0;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 60px;
+  letter-spacing: -0.4px;
+  color: #222222;
+}
+.pricing-title span {
+  font-weight: 700;
+}
+.pricing-text {
+  width: 550px;
+  margin: 48.1px 0 0 181px;       /* left = 320 + 549 + 181 = 1050 | text top 7613.16 - label top 7562.45 */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #81848a;
+}
+.pricing-br {
+  display: inline;
+}
+@media (min-width: 1025px) {
+  .pricing-text {
+    white-space: nowrap;
+  }
+}
+
+/* ---------- CARDS ---------- */
+.pricing-cards {
+  display: flex;
+  gap: 30px;
+  margin-top: 80px;               /* heading bottom 7714.25 -> cards top 7794.25 */
+}
+/* header illaadha version (Pricing plan page): cards section top-la irundhu start aagum */
+.pricing--no-head .pricing-cards {
+  margin-top: 0;
+}
+/* Pricing plan page Figma frame 1920 x 4153.59 :
+   Hero 517 + Pricing 849.12 + What We Do 959.03 + Client Say 1061.5 + Footer 766.94
+   Pricing = 110 + cards 542.75 + 60 + notes 27.19 + 109.18 = 849.12 */
+@media (min-width: 1025px) {
+  .pricing--no-head .pricing-container {
+    padding-bottom: 109.18px;
+  }
+}
+.pricing-card {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 542.75px;
+  padding: 50px 50px 48.5px;
+  border-radius: 40px;
+  background: #f5f5f5;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.pricing-card--featured {
+  background: #ff9900;
+}
+.pricing-deco {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  pointer-events: none;
+}
+
+/* price */
+.pricing-price {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  margin-top: 6px;
+  line-height: 60px;
+  color: #ff9900;
+}
+.pricing-currency {
+  align-self: flex-start;
+  margin: 10.4px 4px 0 5px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 30px;
+}
+.pricing-amount {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 60px;
+}
+.pricing-period {
+  position: relative;
+  top: 2.4px;
+  margin-left: 7.2px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.3px;
+  color: #81848a;
+}
+
+/* plan name */
+.pricing-name {
+  position: relative;
+  margin: 15.5px 0 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #222222;
+}
+
+/* features */
+.pricing-features {
+  position: relative;
+  list-style: none;
+  margin: 60.8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;                      /* row 27.2 + 20 = 47.2 pitch */
+}
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  color: #222222;
+  white-space: nowrap;
+}
+.pricing-feature-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background: #ff9900;            /* gear colour : the PNG is a white gear with transparent ring + tick */
+  -webkit-mask: var(--feature-icon) center / contain no-repeat;
+  mask: var(--feature-icon) center / contain no-repeat;
+}
+
+/* button */
+.pricing-btn {
+  position: relative;
+  margin-top: auto;               /* sits ~48.5px above card bottom */
+  padding: 11px 20px 9px;         /* 27.2 line + 20 padding + 2 x 2 border = 51.2 high */
+  border: 2px solid #ff9900;
+  border-radius: 8px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 27.2px;
+  color: #222222;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.pricing-btn:hover {
+  background: #ff9900;
+  color: #ffffff;
+}
+
+/* featured (orange) card */
+.pricing-card--featured .pricing-currency,
+.pricing-card--featured .pricing-amount,
+.pricing-card--featured .pricing-name,
+.pricing-card--featured .pricing-features li,
+.pricing-card--featured .pricing-btn {
+  color: #ffffff;
+}
+.pricing-card--featured .pricing-period {
+  color: rgba(255, 255, 255, 0.8);
+}
+.pricing-card--featured .pricing-feature-icon {
+  background: #ffffff;
+}
+.pricing-card--featured .pricing-btn {
+  border-color: #ffffff;
+}
+.pricing-card--featured .pricing-btn:hover {
+  background: #ffffff;
+  color: #ff9900;
+}
+
+/* ---------- NOTES ROW ---------- */
+.pricing-notes {
+  list-style: none;
+  margin: 60px 0 0;               /* cards bottom 8337 -> row top 8397 */
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 41.51px;                   /* 3 x (20 icon + 16 gap) + texts + 2 x 41.51 = 676.02 */
+}
+.pricing-notes li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27.19px;
+  color: #222222;
+  white-space: nowrap;
+}
+.pricing-notes img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* =====================================================
+   MEDIA QUERIES  (Desktop 1441px+ = Figma 1920px design)
+   ===================================================== */
+
+/* ---------- Tablet & below (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .pricing-br {
+    display: none;
+  }
+  .pricing-container {
+    padding: 80px 40px;
+  }
+  .pricing-top {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .pricing-head {
+    width: 100%;
+  }
+  .pricing-title {
+    font-size: 42px;
+    line-height: 50px;
+  }
+  .pricing-text {
+    width: 100%;
+    max-width: 640px;
+    margin: 0;
+  }
+  .pricing-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 50px;
+  }
+  .pricing-card {
+    flex: none;
+    width: 100%;
+    max-width: 520px;
+  }
+  .pricing-notes {
+    flex-wrap: wrap;
+    gap: 16px 32px;
+    margin-top: 50px;
+  }
+}
+
+/* ---------- Mobile (<= 768px) ---------- */
+@media (max-width: 768px) {
+  .pricing-container {
+    padding: 60px 24px;
+  }
+  .pricing-title {
+    font-size: 34px;
+    line-height: 42px;
+  }
+  .pricing-card {
+    padding: 40px;
+    border-radius: 32px;
+  }
+}
+
+/* ---------- Small mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .pricing-container {
+    padding: 48px 16px;
+  }
+  .pricing-label {
+    font-size: 12px;
+    letter-spacing: 2.4px;
+  }
+  .pricing-title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .pricing-text {
+    font-size: 15px;
+    line-height: 26px;
+  }
+  .pricing-card {
+    height: auto;
+    padding: 32px 24px;
+    border-radius: 28px;
+  }
+  .pricing-features {
+    margin: 40px 0 40px;
+  }
+  .pricing-features li {
+    gap: 12px;
+    font-size: 15px;
+    white-space: normal;
+  }
+  .pricing-notes {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
